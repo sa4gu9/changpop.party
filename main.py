@@ -25,7 +25,7 @@ def home():
         plist = f.readlines()
         result = random.choice(plist)
         result = result.replace("\n","")
-        result = result.split("===")
+        result = result.split("...")
 
     text=text.replace("youtube-video-link",result[0])
     text=text.replace("upload-date",result[1])
@@ -33,4 +33,4 @@ def home():
     text=text.replace("cpop-name",result[3])
     return text
 
-app.run(port=40109,debug=True)
+app.run(port=40109,debug=option.testMode)
