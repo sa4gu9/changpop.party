@@ -16,9 +16,8 @@ def getFileContent(htmlFileName,cpoplink):
     content = hfn.readlines()
     hfn.close()
 
-    if cpoplink=="lostmedia" or cpoplink=="finding":
+    if cpoplink=="lostmedia":
         content[8]="youtube-video-link<br>"
-        del content[2:8]
     
     returnstr=""
 
@@ -30,14 +29,19 @@ def getFileContent(htmlFileName,cpoplink):
 @app.route('/', methods=['GET','POST'])
 def home():
     
-    result = None
-    with open(f"list.txt","r",encoding="UTF-8") as f:
-        plist = f.readlines()
-        result = random.choice(plist)
-        result = result.replace("\n","")
-        result = result.split("...")
+    result = ["finding"]
+
+    while result[0]=="finding":
+        with open(f"list.txt","r",encoding="UTF-8") as f:
+            plist = f.readlines()
+            result = random.choice(plist)
+            result = result.replace("\n","")
+            result = result.split("...")
+        
+    print(result)
+
+
     text=getFileContent("main",result[0])
-    
     text=text.replace("upload-date",result[1])
     text=text.replace("artist-name",result[2])
     text=text.replace("cpop-name",result[3])
