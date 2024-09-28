@@ -18,6 +18,7 @@ def getFileContent(htmlFileName,cpoplink):
 
     if cpoplink=="lostmedia":
         content[8]="youtube-video-link<br>"
+        del content[2:8]
     
     returnstr=""
 
