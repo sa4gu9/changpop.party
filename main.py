@@ -42,10 +42,8 @@ def home():
     print(result)
 
 
-    text=getFileContent("main",result[0])
-    text=text.replace("upload-date",result[1])
-    text=text.replace("artist-name",result[2])
-    text=text.replace("cpop-name",result[3])
+    text=getFileContent("random",result[0])
+
 
     if result[0]!="lostmedia":
         text=text.replace("youtube-video-link",result[0])
@@ -53,6 +51,21 @@ def home():
     text=text.replace("artist-name",result[2])
     text=text.replace("cpop-name",result[3])
 
-    return text
+    return render_template("main.html",text=text)
+
+@app.route('/list', methods=['GET','POST'])
+def cpoplist():
+    returnstr=""
+    text=""
+    with open(f"list.txt","r",encoding="UTF-8") as f:
+        text=f.readlines()
+
+    for i in text:
+        if i.startswith("finding"):
+            break
+        returnstr+=i+"<br>"
+        
+
+    return render_template("main.html",text=returnstr)
 
 app.run(port=40109,debug=option.testMode)
