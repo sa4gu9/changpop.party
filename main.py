@@ -11,7 +11,7 @@ if option.testMode:
 else:
     host="0.0.0.0"
 
-def getFileContent(htmlFileName,cpoplink):
+def getFileContent(htmlFileName,cpoplink=None):
     hfn = open(f"templates/{htmlFileName}.html","r",encoding="UTF-8")
     content = hfn.readlines()
     hfn.close()
@@ -67,5 +67,16 @@ def cpoplist():
         
 
     return render_template("main.html",text=returnstr)
+
+@app.route('/changdcup', methods=['GET','POST'])
+def changdcuplist():
+    
+
+    text=getFileContent("changdcup")
+
+
+    return render_template("main.html",text=text)
+
+
 
 app.run(port=40109,debug=option.testMode)
