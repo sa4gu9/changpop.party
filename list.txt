@@ -100,16 +100,7 @@ g9SLDIi2w_k...240731...위안 Wian...어떻게 이래
 fKJPApLrtm4...240822...리슝좍교회...어린 별이여
 CCFNcDa2uPI...240827...지평단...소신발언
 h7eoewmdoWs...240829...신창섭으로인생멸망(리듬항구족)...나는 계속 노래 할게
-GhakyJrAljw...240903...니은 Neeun...선족이 자장가
-DE-BjVmqxjQ...240907...콧노래를니뇨니뇨(MV-칠제곱은여섯제곱)...리부트 서버가 있어요?(술취한버전)
--Wqz9jaiO0U...240907...콧노래를니뇨니뇨(MV-좋은비유네용)...재능의 벽(feat. 메벤)
-5LtaafZqtpQ...240910...윾동...딸깍
-uwPRCw_IsJo...240913...조연이(MV-이딴게)...200만 안지르면
-iDdwpZ_KCcc...240915...전일택...Final Reboot(파이널 리부트)
-0fCFQl6bPRg...240919...방자...샤라웃하고 싶었는데
-fIYfQqned3k...240922...창팝딸깍딸깍캬...경험치 배율 삭제는 버프다
-uZ6cBrPkiJ8...240923...주범의신...넥슨 신창섭 응원가(원곡 215 한화 김성근 감독 응원가)
-j1e_NHXefJs...240924...그냥기가창섭...30원
+
 uwhchImbNAE...240801...하아...제로 feat.신창섭
 8QgIIVkTG38...240801...성보의 내가하고싶은거만하는 채널...소신발언
 UFKCdjJH2do...240801...만승우...신창섭의손길
@@ -212,7 +203,7 @@ x8tLeJgEU78...240813...이딴게...세 명의 신
 YH7bwwMuGPc...240813...이딴게...신창섭 - 웃는 가면
 -Am-Xb6yhEE...240813...프뷰터...메벤남 - Forever and
 mmm3qUqXZrU...240813...와맨...[메이플] 신창섭 - 추억
-lostemedia...240813...신도리...쌀숭이 한 마리
+lostmedia...240813...신도리...쌀숭이 한 마리
 te2IgWO81s4...240813...일리움의 아버지 신창섭...리부트 리프
 MUwV1YQEh3Y...240813...AI 신창섭...정상화의 길
 cS4JC4S8MJc...240814...창섭더록...Re:boot
@@ -298,94 +289,92 @@ hF7FHEk6NLM...240820...창팝딸깍딸깍캬...어느순간
 RR9xWK3fHtU...240820...페이드...신창섭 - Sheeps, Shake it
 D35PMbw_y88...240820...Ayeon...신창섭의 은혜가 충만하도다 (CCM)
 l5G5BXQic1A...240821...도사의 길...분탕카멘
-finding....240821...하아...Dead or Alive - 신창섭
-finding....240821...더문잘...할만해
-finding....240821...선족아또속냐...리선족 - 소신발언 전혀없지
-finding....240821...기랑...둠창섭 - 테라포밍
-finding....240821...섭 회색셔츠...Episode 0. 리부트
-finding....240821...전일택...신창섭-신의 전쟁 God ChangSeop-The God's battle
-finding....240821...페이드...쌈창섭 - 쌈을 싸
-finding....240821...지평단...메이플펀치
-finding....240821...지평단...공책패치
-finding....240822...창록...창섭더록- 우리의 Worlds /THE FIRST TOOK
-finding....240822...리슝좍교회...쌀창섭 - 어린 별이여 M/V
-finding....240822...이딴게...신창섭 "세 명의 신" 오페라 Ver. (2절 개사)
-finding....240822...신창섭의은총...사탕의 혈육 (Fall in love)
-finding....240822...신창섭...[메이플] 리선족 - 구원
-finding....240822...AYeon...신창섭 - 너의 메이플스토리
-finding....240822...AYeon...신창섭 - 배드엔딩
-finding....240822...AI 신창섭...신창섭 - 리선족 웃고있나요
+iyUlXCfBeiQ...240821...하아...Dead or Alive - 신창섭
+NVTpfSSIaAc...240821...더문잘...할만해
+YKUxYmeMJQQ...240821...선족아또속냐...리선족 - 소신발언 전혀없지
+c2BHB9Xfx5M...240821...기랑...둠창섭 - 테라포밍
+yLlYxHWWcMw...240821...섭 회색셔츠...Episode 0. 리부트
+j_dy2dGciyI...240821...전일택...신창섭-신의 전쟁 God ChangSeop-The God's battle
+x8DUSbDwkww...240821...페이드...쌈창섭 - 쌈을 싸
+vhre7VFjua8...240821...지평단...메이플펀치
+OvRiWG256uM...240821...지평단...공책패치
+KQKla4cVBxg...240822...창록...창섭더록- 우리의 Worlds /THE FIRST TOOK
+fKJPApLrtm4...240822...리슝좍교회...쌀창섭 - 어린 별이여 M/V
+7Bd4bzNgmng...240822...이딴게...신창섭 "세 명의 신" 오페라 Ver. (2절 개사)
+PPSD9QyQvsc...240822...신창섭의은총...사탕의 혈육 (Fall in love)
+_K-aVXphw-w...240822...신창섭...[메이플] 리선족 - 구원
+pH-eQIa7c9o...240822...AYeon...신창섭 - 너의 메이플스토리
+-QghGJyI-tA...240822...AYeon...신창섭 - 배드엔딩
+j1t1u6s1GJY...240822...AI 신창섭...신창섭 - 리선족 웃고있나요
 7rgXeuC2PuE...240823...하아...주범 - 신창섭
 wzJA-Qm3-wo...240823...인포딕...뭘 바라냐(feat. 강원기)
 VqfFdrYQJZg...240823...쌀파라...카르마 투아쿨파
-finding....240823...창섭신...김창섭 - 악의 주범 (culprit of evil) [feat.JL]
-finding....240823...리듬항구족...리쌀랜드 - 함께 춤추자
-finding....240823...리슝좍교회...신창섭 - 사형 / 시야 제한석 시점 (직캠)
-finding....240823...섭 회색셔츠...주범
+A7wtjUVK4nw...240823...창섭신...김창섭 - 악의 주범 (culprit of evil) [feat.JL]
+lostmedia...240823...리듬항구족...리쌀랜드 - 함께 춤추자
+ZJbYUjUPAp0...240823...리슝좍교회...신창섭 - 사형 / 시야 제한석 시점 (직캠)
+Kw7Z3xqQ0U0...240823...섭 회색셔츠...주범
 YrUXMit_Qs8...240823...신창섭 추종자...《Sunday Morning》
-finding....240823...신창섭으로 취미생활...[신창섭 AI] 오페라 : 신창섭의 힘, 리부트의 멸망(Il Potere di Shin Chang seop, la Caduta di Reboot)
-finding....240823...euuhhd...신창섭 - 정말 미안해
-finding....240823...돼지와함께춤을...[Swing/재즈] 신창섭과 약속해요 매일 창팝!
-finding....240823...ITX마음...리부트 요리
-finding....240823...AI곡업로드용일회용계정...리주령 - 응원할게
-finding....240823...AI곡업로드용일회용계정...나 가거든 - 신창섭 [MV]
-finding....240823...페이드...쌀숭이 - 줍, 엄! 줍, 엄!
-finding....240823...하이창스비리부트죽여줘...신창섭 - 그런 서버는 애초에 없었잖아
-finding....240823...AYeon...메벤남 - WWE라는 걸 잊지마
-finding....240823...AYeon...메이플 유저가 대단한 이유 (템플런)
-finding....240823...배호호...신창섭 - 나도 살아야지 (Female cover ver.)
-finding....240823...Mc마이크...Mc마이크(신창섭)- Chang Chang Chang(창창창)
-finding....240824...도사의 길...단막극 - 마이클 농장 (1)
-finding....240824...신도...평범한 메벤남의 이야기
-finding....240824...pretty_...Normalization World
-finding....240824...ASD...신창섭 - 커튼콜 (mv)
-finding....240824...리슝좍교회...신창섭 - 인간실격 리주범 M/V
-finding....240824...이딴게...신창섭 "직접 공격" MV
-finding....240824...신창섭의은총...고해성사
-finding....240824...ITX마음...앞으로 나아가
-finding....240824...페이드...신창섭 - 내 식당에서 꺼져 (feat. 리선족)
-finding....240824...봄토끼...신창섭 - Judgment Day
-finding....240824...그냥기가창섭...리쌀대전 외전 - Rebuttal(반박)
-finding....240825...도사의 길...가을 이야기
-finding....240825...도사의 길...신창섭의 요들교실
-finding....240825...창록...창섭더록/ 리주범 다크 - Lyric Video
-finding....240825...신창섭의은총...별은 지고 (떠나간 게임에게 바치는 노래)
+FRb5IWxHGWY...240823...신창섭으로 취미생활...[신창섭 AI] 오페라 : 신창섭의 힘, 리부트의 멸망(Il Potere di Shin Chang seop, la Caduta di Reboot)
+ApjbNdDtXWk...240823...euuhhd...신창섭 - 정말 미안해
+icGp-6yb0dE...240823...돼지와함께춤을...[Swing/재즈] 신창섭과 약속해요 매일 창팝!
+Qi_mK3Y30NA....240823...ITX마음...리부트 요리
+gE8A9jxcZ-g...240823...AI곡업로드용일회용계정...리주령 - 응원할게
+0XAwD_f-IzY...240823...AI곡업로드용일회용계정...나 가거든 - 신창섭 [MV]
+gIUcfM1I75I....240823...페이드...쌀숭이 - 줍, 엄! 줍, 엄!
+LGkENnV1hm4...240823...하이창스비리부트죽여줘...신창섭 - 그런 서버는 애초에 없었잖아
+K1X0wJriJsY...240823...AYeon...메벤남 - WWE라는 걸 잊지마
+h9xjqhAI7Q8...240823...AYeon...메이플 유저가 대단한 이유 (템플런)
+vA_3RPdjo9E...240823...배호호...신창섭 - 나도 살아야지 (Female cover ver.)
+qErgUfui7_s....240823...Mc마이크...Mc마이크(신창섭)- Chang Chang Chang(창창창)
+3OWsyjpvOHc...240824...도사의 길...단막극 - 마이클 농장 (1)
+XYmt0RH5-UA...240824...신도...평범한 메벤남의 이야기
+yUiCl3256yY...240824...pretty_...Normalization World
+f_wRwCAX4YU...240824...ASD...신창섭 - 커튼콜 (mv)
+YM-CI4XDYY0...240824...리슝좍교회...신창섭 - 인간실격 리주범 M/V
+Z7a2qz1DaYI...240824...이딴게...신창섭 "직접 공격" MV
+NJkJr81RFPM...240824...신창섭의은총...고해성사
+YDjoSrzPagI...240824...ITX마음...앞으로 나아가
+SEK6qoBaNw4...240824...페이드...신창섭 - 내 식당에서 꺼져 (feat. 리선족)
+xaald6jRp2c....240824...봄토끼...신창섭 - Judgment Day
+icrCJ_E7Sok...240824...그냥기가창섭...리쌀대전 외전 - Rebuttal(반박)
+doSX17b59cc...240825...도사의 길...가을 이야기
+JhgMgymtRi4...240825...도사의 길...신창섭의 요들교실
+cJiXpVZlr9I...240825...창록...창섭더록/ 리주범 다크 - Lyric Video
+suiMDpMBTjQ...240825...신창섭의은총...별은 지고 (떠나간 게임에게 바치는 노래)
 lostmedia...240825...신창섭 추종자...《Saturday Swing》
-finding....240825...오르카...이해가 쏙쏙 되잖아 리슝좍아 full ver
-finding....240825...저장용...착한 리부트 유저(리부트 게시판 헌정곡)
-finding....240825...VALVe Korea - SEOULMATE...고래 쌀숭이 (with 신창섭)
-finding....240825...AYeon...신창섭 - Next Normalization GMS 정상화
-finding....240825...지평단...리부트, 내 고향
-finding....240826...쌀파라...신창섭 - 카루마 (J-POP)
-finding....240826...리북공정...신창섭 - 나는 주범인가 봐 MV
-finding....240826...창록...창섭더록 정규 1집 : Re:boot - full album
-finding....240826...습작노트...한 잔해(Cheers!)
-finding....240827...하아...긁?
-finding....240827...신창섭으로자기개발...결전 (The Confrontation)
-finding....240827...기랑...[M/V] 신창섭 - 창드컵
-finding....240827...신창섭으로 취미생활...물통은 현질이 아니야
-finding....240827...신재윤...[Lyric] 10만 다이 듀오 - Nexon Freestyle
-finding....240827...페이드...멀어져 가
-finding....240827...ㅇㅇ...리슝좍들아
-finding....240827...뭉...[리네상스] 메벤남 - 리부트는 말이야
-finding....240827...지평단...뻥 이 요 - 소신발언
-finding....240828...도사의 길...야근소녀 창섭
-finding....240828...추억이면...낙원의 한별
-finding....240828...섭 회색셔츠...글로벌 메이플스토리 pt1
-finding....240828...습작노트...신탁(ORACLE)
-finding....240828...전일택...신창섭-잊혀지지 않도록 Unforgotten Resolve
-finding....240828...사이버 해적왕...신창섭 - 호연
-finding....240829...하아...GMS Normalize - 신창섭
-finding....240829...신창섭으로자기개발...$$AL $OONG - 신창섭 덕분에
-finding....240829...신창섭으로인생멸망(리듬항구족)...나는 계속 노래 할게
-finding....240829...리슝좍교회...리창섭 - 내 고향 리부트
+QiXPK1bkHU8...240825...저장용...착한 리부트 유저(리부트 게시판 헌정곡)
+Bhxtn76spIA...240825...VALVe Korea - SEOULMATE...고래 쌀숭이 (with 신창섭)
+38VO3djEz84...240825...AYeon...신창섭 - Next Normalization GMS 정상화
+UGByxLgYYg4...240825...지평단...리부트, 내 고향
+7_N_GZGMpSE...240826...쌀파라...신창섭 - 카루마 (J-POP)
+bSs-bMW7STY....240826...리북공정...신창섭 - 나는 주범인가 봐 MV
+fIixg7URHMA....240826...습작노트...한 잔해(Cheers!)
+AFlahp4rFxI...240827...하아...긁?
+7kuMFR2Kxw4...240827...신창섭으로자기개발...결전 (The Confrontation)
+G9zTlK7CoCk...240827...기랑...[M/V] 신창섭 - 창드컵
+vUvTMK56vIc...240827...신창섭으로 취미생활...물통은 현질이 아니야
+tVDNBTg5vSk...240827...신재윤...[Lyric] 10만 다이 듀오 - Nexon Freestyle
+BdURWxhx_HQ....240827...페이드...멀어져 가
+TmhGEnPXpwo....240827...ㅇㅇ...리슝좍들아
+7sNDJU2pAzI....240827...뭉...[리네상스] 메벤남 - 리부트는 말이야
+CCFNcDa2uPI....240827...지평단...뻥 이 요 - 소신발언
+NzU5Rr4Wzug....240828...도사의 길...야근소녀 창섭
+vaZOS6vF7lE....240828...추억이면...낙원의 한별
+04Iw-xzIEHs....240828...섭 회색셔츠...글로벌 메이플스토리 pt1
+C2Pu0ylC_yg....240828...습작노트...신탁(ORACLE)
+JEUn1_4-TQA....240828...전일택...신창섭-잊혀지지 않도록 Unforgotten Resolve
+RU84TWrxi8s....240828...사이버 해적왕...신창섭 - 호연
+EWfkd_QplTk....240829...하아...GMS Normalize - 신창섭
+j0yGL-3csHk....240829...신창섭으로자기개발...$$AL $OONG - 신창섭 덕분에
+h7eoewmdoWs....240829...신창섭으로인생멸망(리듬항구족)...나는 계속 노래 할게
+xx5QEXoMNIE...240829...리슝좍교회...리창섭 - 내 고향 리부트
 lostmedia...240829...신창섭 추종자...《Friday Rice》 - 신창순 Lyric Video
-finding....240829...리북공정...신창섭 - 新しさ(새로움)
-finding....240829...더문잘...후회
-finding....240829...인장주작...《추억은 추억으로 남았을 때가, 가장 아름다워.》 - Lyric video
-finding....240829...그냥기가창섭...신창섭 - 관심좀요, 꼭이요 feat.오한별
-finding....240829...프뷰터...김창섭 - 나
-finding....240829...도사의 길...쌀pop - 쌀숭이 국가(The Anthem of the Rice Monkey)
+mHWiZ9XeJyw....240829...리북공정...신창섭 - 新しさ(새로움)
+-3ha9Mt4gmQ....240829...더문잘...후회
+Mz4IqPbDMLQ....240829...인장주작...《추억은 추억으로 남았을 때가, 가장 아름다워.》 - Lyric video
+vtkcSyIVOcs....240829...그냥기가창섭...신창섭 - 관심좀요, 꼭이요 feat.오한별
+JlCsSelGq2Y....240829...프뷰터...김창섭 - 나
+JlpEoy6M6mg....240829...도사의 길...쌀pop - 쌀숭이 국가(The Anthem of the Rice Monkey)
 oMcMXrXa7q0...240829...국힙원탑신창섭...신창섭 - 추억팔이
 j9w_ueLNLoU...240829...기랑...1
 O903kwpNGVs...240830...국힙원탑신창섭...DJ창섭 - 슝슝
@@ -405,6 +394,10 @@ lostmedia...240831...신창섭으로인생멸망(리듬항구족)...김창섭 VS
 321H3vBDNDw...240831...방자...이딴게 재밌냐?
 m7Z6niIwnHA...240831...신창섭으로자기개발...투허닛 - 김창섭, 너의 세계는
 cdxQik-b9y8...240831...창팝딸깍딸깍캬...메이플, 지금이니?
+GhakyJrAljw...240903...니은 Neeun...선족이 자장가
+DE-BjVmqxjQ...240907...콧노래를니뇨니뇨(MV-칠제곱은여섯제곱)...리부트 서버가 있어요?(술취한버전)
+-Wqz9jaiO0U...240907...콧노래를니뇨니뇨(MV-좋은비유네용)...재능의 벽(feat. 메벤)
+5LtaafZqtpQ...240910...윾동...딸깍
 GBKMMjj3DlE...240911...창드컵...때려 박는 신
 suO2uk7mxKw...240912...AYeon...겜한분들아 제발 가라고
 zOYkQWs2WSk...240912...이단아...내가 리부트를 정상화한 것은
@@ -413,15 +406,21 @@ T97hiDf0Xfg...240912...도사의 길...항아리
 vWMqaiwxyPY...240912...이딴게...신창섭에 관한 26가지 사실 Recitativo
 rcs7vno_oh4...240912...저그질럿...그래 그래 리부트
 bN1HefDjuFQ...240913...신창섭 팬...하선
+uwPRCw_IsJo...240913...조연이(MV-이딴게)...200만 안지르면
+iDdwpZ_KCcc...240915...전일택...Final Reboot(파이널 리부트)
 lDFmwfPmPY8...240915...주차장...아무 창섭
 ZVp2huIe8YM...240917...다라미...너희만 몰라
+0fCFQl6bPRg...240919...방자...샤라웃하고 싶었는데
 RLne4Gmpnhg...240920...2 OO...쌀숭 is just dis
 Awgfgnj76uA...240921...2 OO...사명
 1wKBgBa43gY...240921...2 OO...With roses (장미와 함께)
 Xiq9bQpWabc...240922...2 OO...너희들은 메이플이 딱이야
 wqY7PvSUEFU...240922...2 OO...RGB 255,0,0 (빨간 진심)
+fIYfQqned3k...240922...창팝딸깍딸깍캬...경험치 배율 삭제는 버프다
+uZ6cBrPkiJ8...240923...주범의신...넥슨 신창섭 응원가(원곡 215 한화 김성근 감독 응원가)
 mgPW7ygIKTQ...240923...2 OO...고해성가
 O1-Rhp6rrDc...240923...2 OO...조금만 더
+j1e_NHXefJs...240924...그냥기가창섭...30원
 u_jucWQA3vc...240924...2 OO...The First (첫째 형 가라사대)
 KzQXEYmcalE...240924...2 OO...The First (첫째 형 가라사대) to skip
 Z54XW9gwpAY...240924...colrma...돈써!
