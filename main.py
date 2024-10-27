@@ -78,6 +78,16 @@ def changpop_info():
         text="존재하지 않는 문서입니다."
     return render_template(f"main.html",text=text)
 
+@app.route('/changpop_kesa', methods=['GET'])
+def changpopkesa_info():
+    video_id=request.args.get("video_id")
+
+    try:
+        text=getFileContent(f"changpop_kesa/{video_id}")
+    except:
+        text="존재하지 않는 문서입니다."
+    return render_template(f"main.html",text=text)
+
 
 @app.route('/kesa_list', methods=['GET','POST'])
 def cpopkesalist():
@@ -89,7 +99,7 @@ def cpopkesalist():
     for i in text:
         if i.startswith("finding"):
             break
-        returnstr+=i+"<br>"
+        returnstr+=f'<a href="changpop?video_id={i[0:11]}"'+"</a>"+i+"<br>"
         
 
     return render_template("main.html",text=returnstr)
