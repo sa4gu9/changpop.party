@@ -68,6 +68,21 @@ def cpoplist():
 
     return render_template("main.html",text=returnstr)
 
+@app.route('/kesa_list', methods=['GET','POST'])
+def cpopkesalist():
+    returnstr=""
+    text=""
+    with open(f"list_kesa.txt","r",encoding="UTF-8") as f:
+        text=f.readlines()
+
+    for i in text:
+        if i.startswith("finding"):
+            break
+        returnstr+=i+"<br>"
+        
+
+    return render_template("main.html",text=returnstr)
+
 @app.route('/changdcup', methods=['GET','POST'])
 def changdcuplist():
     

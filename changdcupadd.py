@@ -24,4 +24,5 @@ for i in plist:
     pyautogui.leftClick()
     pyautogui.hotkey('ctrl', 'a')
     pyautogui.hotkey('backspace')
+    
 
