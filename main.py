@@ -72,10 +72,17 @@ def cpoplist():
 def changpop_info():
     video_id=request.args.get("video_id")
 
+    text=f"""<div class="player">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{video_id}?autoplay=0"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe><br>
+    </div><br>"""
     try:
-        text=getFileContent(f"changpop/{video_id}")
+        
+        text+=getFileContent(f"changpop/{video_id}")
     except:
-        text="존재하지 않는 문서입니다."
+        text+="비어있는 문서입니다."
     return render_template(f"main.html",text=text)
 
 @app.route('/changpop_kesa', methods=['GET'])
