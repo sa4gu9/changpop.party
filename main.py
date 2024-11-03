@@ -3,7 +3,6 @@ import random
 import secret.option as option
 
 app = Flask(__name__)
-
 host = ""
 
 if option.testMode:
@@ -39,9 +38,6 @@ def home():
             result = result.replace("\n","")
             result = result.split("...")
         
-    print(result)
-
-
     text=getFileContent("random",result[0])
 
 
@@ -64,35 +60,42 @@ def cpoplist():
         if i.startswith("finding"):
             break
         returnstr+=f'<a href="changpop?video_id={i[0:11]}"'+"</a>"+i+"<br>"
-        
 
     return render_template("main.html",text=returnstr)
 
-@app.route('/changpop', methods=['GET'])
-def changpop_info():
-    video_id=request.args.get("video_id")
 
+def get_document(is_kesa, video_id):
     text=f"""<div class="player">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/{video_id}?autoplay=0"
     title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen></iframe><br>
     </div><br>"""
+
+    add_text=""
+    if is_kesa:
+        add_text="_kesa"
     try:
-        
-        text+=getFileContent(f"changpop/{video_id}")
+        text+=getFileContent(f"changpop{add_text}/{video_id}")
     except:
-        text+="비어있는 문서입니다."
+        text+="존재하지 않는 문서입니다."
+
+    return text
+
+
+@app.route('/changpop', methods=['GET'])
+def changpop_info():
+    video_id=request.args.get("video_id")
+    text=get_document(False,video_id)
+    
     return render_template(f"main.html",text=text)
+
 
 @app.route('/changpop_kesa', methods=['GET'])
 def changpopkesa_info():
     video_id=request.args.get("video_id")
-
-    try:
-        text=getFileContent(f"changpop_kesa/{video_id}")
-    except:
-        text="존재하지 않는 문서입니다."
+    text=get_document(True,video_id)
+    
     return render_template(f"main.html",text=text)
 
 
@@ -113,13 +116,9 @@ def cpopkesalist():
 
 @app.route('/changdcup', methods=['GET','POST'])
 def changdcuplist():
-    
-
     text=getFileContent("changdcup")
 
-
     return render_template("main.html",text=text)
-
 
 
 app.run(port=40109,debug=option.testMode)
