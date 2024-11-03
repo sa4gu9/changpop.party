@@ -98,6 +98,11 @@ def changpopkesa_info():
     
     return render_template(f"main.html",text=text)
 
+@app.route('/prompt', methods=['GET','POST'])
+def promptlist():
+    text=getFileContent(f"prompt")
+    return render_template(f"main.html",text=text)
+
 
 @app.route('/kesa_list', methods=['GET','POST'])
 def cpopkesalist():
