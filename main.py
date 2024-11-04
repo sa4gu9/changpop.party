@@ -111,9 +111,12 @@ def changpop_info():
             if before==after:
                 pass
             else:
+                keyword=["a href","img","video","iframe","audio","script"]
                 #미디어 차단
-                if "a href" in after or "img" in after or "video" in after or "iframe" in after or "audio" in after:
-                    return redirect(f"changpop?video_id={video_id}&mode=edit")
+                for i in keyword:
+                    if i in after:
+                        return redirect(f"changpop?video_id={video_id}&mode=edit")
+
                 count=0
 
                 #폴더의 파일 개수 확인
