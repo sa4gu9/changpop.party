@@ -80,14 +80,12 @@ def get_video(video_id):
 
     return text
 
-def get_document(is_kesa, video_id):
+def get_document(video_id):
 
     text=""
-    add_text=""
-    if is_kesa:
-        add_text="_kesa"
+
     try:
-        text+=getFileContent(f"changpop{add_text}/{video_id}/recent")
+        text+=getFileContent(f"changpop/{video_id}/recent")
     except:
         text+="존재하지 않는 문서입니다."
 
@@ -108,7 +106,7 @@ def changpop_info():
             
 
             #파일의 세부 변경사항을 저장하기
-            before=get_document(False,video_id)
+            before=get_document(video_id)
             
             if before==after:
                 pass
@@ -141,13 +139,13 @@ def changpop_info():
 
             #html input text로 수정할 수 있게
             after+=f"""<form action="changpop?video_id={video_id}&mode=edit" method="post">
-            <textarea name="text" rows="10" cols="50">{get_document(False,video_id)}</textarea>
+            <textarea name="text" rows="10" cols="50">{get_document(video_id)}</textarea>
             <input type="submit" value="수정">
             </form>"""
 
     elif mode=="read":
         after=get_video(video_id)
-        after+=get_document(False,video_id)
+        after+=get_document(video_id)
 
         #a href로 수정버튼 추가
         after+=f'<a href="changpop?video_id={video_id}&mode=edit">수정</a>'
@@ -158,7 +156,7 @@ def changpop_info():
 @app.route('/changpop_kesa', methods=['GET'])
 def changpopkesa_info():
     video_id=request.args.get("video_id")
-    text=get_document(True,video_id)
+    text=get_document(video_id)
     
     return render_template(f"main.html",text=text)
 
@@ -179,7 +177,7 @@ def cpopkesalist():
     for i in text:
         if i.startswith("finding"):
             break
-        returnstr+=f'<a href="changpop?video_id={i[0:11]},mode=read"'+"</a>"+i+"<br>"
+        returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
         
 
     return render_template("main.html",text=returnstr)
