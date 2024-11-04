@@ -80,13 +80,13 @@ def get_video(video_id):
 
     return text
 
-def get_document(video_id):
+def get_document(video_id,version="recent"):
 
     text=""
-
     try:
-        text+=getFileContent(f"changpop/{video_id}/recent")
+        text+=getFileContent(f"changpop/{video_id}/{version}")
     except:
+        
         text+="존재하지 않는 문서입니다."
 
     return text
@@ -96,6 +96,7 @@ def get_document(video_id):
 def changpop_info():
     video_id=request.args.get("video_id")
     mode=request.args.get("mode")
+    version=request.args.get("version")
     after=""
     if mode=="edit":
 
@@ -122,13 +123,13 @@ def changpop_info():
                 #폴더의 파일 개수 확인
                 try:
                     count=len(os.listdir(f"templates/changpop/{video_id}"))
+
+                    with open(f"templates/changpop/{video_id}/V{count}.html","w",encoding="UTF-8") as f:
+                        f.write(before)
                 except:
                     count=1
                     os.mkdir(f"templates/changpop/{video_id}")
-
-
-                with open(f"templates/changpop/{video_id}/V{count}.html","w",encoding="UTF-8") as f:
-                    f.write(before)
+                
 
                 with open(f"templates/changpop/{video_id}/recent.html","w",encoding="UTF-8") as f:
                     f.write(after)
@@ -147,11 +148,22 @@ def changpop_info():
             </form>"""
 
     elif mode=="read":
+        print(version)
         after=get_video(video_id)
-        after+=get_document(video_id)
+        if version==None:
+            after+=get_document(video_id)
+        else:
+            text=get_document(video_id,version)
 
+            if text=="존재하지 않는 문서입니다.":
+                return redirect(f"changpop?video_id={video_id}&mode=read")
+            else:
+                after+=text
         #a href로 수정버튼 추가
         after+=f'<a href="changpop?video_id={video_id}&mode=edit">수정</a>'
+    elif mode=="version":
+        versions = os.listdir(f"templates/changpop/{video_id}")
+        return render_template(f"main.html",text=versions)
     else:
         return redirect(f"changpop?video_id={video_id}&mode=read")
     
