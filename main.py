@@ -49,6 +49,12 @@ def home():
 
     return render_template("main.html",text=text)
 
+
+@app.route('/ads.txt', methods=['GET','POST'])
+def adstxt():
+    with open("ads.txt","r",encoding="UTF-8") as f:
+        return f.read()
+
 @app.route('/list', methods=['GET','POST'])
 def cpoplist():
     returnstr=""
