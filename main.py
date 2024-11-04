@@ -152,6 +152,8 @@ def changpop_info():
 
         #a href로 수정버튼 추가
         after+=f'<a href="changpop?video_id={video_id}&mode=edit">수정</a>'
+    else:
+        return redirect(f"changpop?video_id={video_id}&mode=read")
     
     return render_template(f"main.html",text=after)
 
