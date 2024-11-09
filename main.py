@@ -11,6 +11,10 @@ if option.testMode:
 else:
     host="0.0.0.0"
 
+@app.route('/youthyouthsheet', methods=['GET','POST'])
+def youthyouthsheet():
+    return redirect("https://docs.google.com/spreadsheets/d/1eVphTP9FaDgKn4W0x03rQBDrYMF2ibANxEpaz1dFNvU/edit?gid=1280611118#gid=1280611118")
+
 def getFileContent(htmlFileName,cpoplink=None):
     hfn = open(f"templates/{htmlFileName}.html","r",encoding="UTF-8")
     content = hfn.readlines()
