@@ -2,6 +2,8 @@ from flask import Flask,render_template, make_response,request,redirect,url_for,
 import random
 import secret.option as option
 import os
+from gevent.pywsgi import WSGIServer
+
 
 app = Flask(__name__)
 host = ""
@@ -288,4 +290,9 @@ def cpopquiz():
     return resp
 
 
-app.run(port=40109,debug=option.testMode)
+if __name__ == '__main__':
+    # Debug/Development
+    # app.run(debug=True, host="0.0.0.0", port="5000")
+    # Production
+    http_server = WSGIServer(('', option.port), app)
+    http_server.serve_forever()
