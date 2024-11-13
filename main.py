@@ -210,4 +210,80 @@ def changdcuplist():
     return render_template("main.html",text=text)
 
 
+
+
+problemList={}
+
+@app.route('/quiz', methods=['GET','POST'])
+def cpopquiz():
+    global problemList
+    returnstr=''
+    id=0
+    resp = make_response(redirect('quiz'))
+
+    if request.method == 'POST':
+        if 'testid' in request.cookies.keys():
+            testid=request.cookies.get('testid')
+
+            if testid==0:
+                id = str(random.randint(100000000000,999999999999))
+
+                while id in problemList:
+                    id = str(random.randint(100000000000,999999999999))
+            elif testid in problemList.keys():
+                print(123123123213)
+                submit=request.form['text']
+                submit=submit.replace(" ","")
+                submit=submit.lower()
+                answer=problemList[testid].replace(" ","")
+                answer=answer.lower()
+                if submit==answer:
+                    returnstr="정답입니다."
+                else:
+                    returnstr="오답입니다."
+
+                returnstr+=f"\n정답 : {problemList[testid]}"
+
+                resp.delete_cookie('testid')
+                del problemList[testid]
+                return render_template("main.html",text=returnstr)
+            else:
+                return redirect('quiz')
+        else:
+            print(1111111111111111111111)
+            return make_response(redirect('quiz'))
+
+            
+    if request.method == 'GET':
+        print("asdfdasfasf")
+        result = "finding"
+
+        while result=="finding" or result[0]=="lostmedia" or result[0]=="finding":
+            with open(f"list.txt","r",encoding="UTF-8") as f:
+                plist = f.readlines()
+                result = random.choice(plist)
+                result = result.replace("\n","")
+                result = result.split("...")
+        returnstr=getFileContent("random",result[0])
+
+        returnstr=returnstr.replace("youtube-video-link",result[0])
+        returnstr=returnstr.replace("upload-date","")
+        returnstr=returnstr.replace("artist-name","")
+        returnstr=returnstr.replace("cpop-name","")
+
+        returnstr+=getFileContent(f"quiz")
+
+        id = str(random.randint(100000000000,999999999999))
+
+        while id in problemList:
+            id = str(random.randint(100000000000,999999999999))
+        print(result)
+        problemList[id]=result[3]
+
+    resp = make_response(render_template("main.html",text=returnstr))
+    if id!=0:
+        resp.set_cookie('testid',str(id))
+    return resp
+
+
 app.run(port=40109,debug=option.testMode)
