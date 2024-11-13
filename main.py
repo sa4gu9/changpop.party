@@ -234,8 +234,10 @@ def cpopquiz():
                 print(123123123213)
                 submit=request.form['text']
                 submit=submit.replace(" ","")
+                submit=submit.replace(",","")
                 submit=submit.lower()
                 answer=problemList[testid].replace(" ","")
+                answer=answer.replace(",","")
                 answer=answer.lower()
                 if submit==answer:
                     returnstr="정답입니다."
