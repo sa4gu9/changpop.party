@@ -263,7 +263,7 @@ def cpopquiz():
         result = "finding"
 
         while result=="finding" or result[0]=="lostmedia" or result[0]=="finding":
-            with open(f"list.txt","r",encoding="UTF-8") as f:
+            with open(f"{os.path.dirname(os.path.abspath(__file__))}/list.txt","r",encoding="UTF-8") as f:
                 plist = f.readlines()
                 result = random.choice(plist)
                 result = result.replace("\n","")
