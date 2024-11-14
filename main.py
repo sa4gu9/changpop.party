@@ -5,7 +5,11 @@ import os
 from gevent.pywsgi import WSGIServer
 
 
-app = Flask(__name__)
+project_root = os.path.dirname(__file__)
+template_path = os.path.join(project_root, 'app/templates')
+app = Flask(__name__, template_folder=template_path)
+
+
 host = ""
 
 if option.testMode:
@@ -46,9 +50,11 @@ def home():
             result = result.split("...")
     text=getFileContent("random",result[0])
 
-
+    print(result)
     if result[0]!="lostmedia":
         text=text.replace("youtube-video-link",result[0])
+    else:
+        text=text.replace("youtube-video-link","")
     text=text.replace("upload-date",result[1])
     text=text.replace("artist-name",result[2])
     text=text.replace("cpop-name",result[3])
@@ -291,8 +297,14 @@ def cpopquiz():
 
 
 if __name__ == '__main__':
-    # Debug/Development
-    # app.run(debug=True, host="0.0.0.0", port="5000")
-    # Production
-    http_server = WSGIServer(('', option.port), app)
-    http_server.serve_forever()
+    if option.testMode:
+        app.run(debug=True, host=host, port=option.port)
+    else:
+        # Debug/Development
+        # app.run(debug=True, host="0.0.0.0", port="5000")
+        # Production
+        
+
+
+        http_server = WSGIServer(('', option.port), app)
+        http_server.serve_forever()
