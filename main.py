@@ -11,7 +11,8 @@ app = Flask(__name__, template_folder=template_path)
 
 
 host = ""
-
+listpath=f"{os.path.dirname(os.path.abspath(__file__))}/list.txt"
+kesapath=f"{os.path.dirname(os.path.abspath(__file__))}/list_kesa.txt"
 if option.testMode:
     host="127.0.0.1"
 else:
@@ -43,7 +44,7 @@ def home():
     result = ["finding"]
 
     while result[0]=="finding":
-        with open(f"list.txt","r",encoding="UTF-8") as f:
+        with open(listpath,"r",encoding="UTF-8") as f:
             plist = f.readlines()
             result = random.choice(plist)
             result = result.replace("\n","")
@@ -71,7 +72,7 @@ def adstxt():
 def cpoplist():
     returnstr=""
     text=""
-    with open(f"list.txt","r",encoding="UTF-8") as f:
+    with open(listpath,"r",encoding="UTF-8") as f:
         text=f.readlines()
 
     for i in text:
@@ -200,7 +201,7 @@ def promptlist():
 def cpopkesalist():
     returnstr=""
     text=""
-    with open(f"list_kesa.txt","r",encoding="UTF-8") as f:
+    with open(kesapath,"r",encoding="UTF-8") as f:
         text=f.readlines()
 
     for i in text:
@@ -269,7 +270,7 @@ def cpopquiz():
         result = "finding"
 
         while result=="finding" or result[0]=="lostmedia" or result[0]=="finding":
-            with open(f"{os.path.dirname(os.path.abspath(__file__))}/list.txt","r",encoding="UTF-8") as f:
+            with open(listpath,"r",encoding="UTF-8") as f:
                 plist = f.readlines()
                 result = random.choice(plist)
                 result = result.replace("\n","")
