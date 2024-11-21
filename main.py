@@ -65,7 +65,7 @@ def home():
 
 @app.route('/ads.txt', methods=['GET','POST'])
 def adstxt():
-    with open("ads.txt","r",encoding="UTF-8") as f:
+    with open(f"{os.path.dirname(os.path.abspath(__file__))}/ads.txt","r",encoding="UTF-8") as f:
         return f.read()
 
 @app.route('/list', methods=['GET','POST'])
