@@ -93,7 +93,7 @@ def get_video(video_id):
 
     return text
 
-def get_document(video_id,version="recent"):
+def get_document(video_id,mode="read",version="recent"):
 
     text=""
     try:
@@ -101,24 +101,27 @@ def get_document(video_id,version="recent"):
     except:
         
         text+="존재하지 않는 문서입니다."
-    text+=f'<a href="changpop?video_id={video_id}&mode=edit">수정</a>'
+    if mode=="read":
+        text+=f'<a href="changpop?video_id={video_id}&mode=edit&type=document">수정</a>'
     return text
 
 
-def get_lyric(video_id):
+def get_lyric(video_id,mode="read"):
     text=""
     try:
-        text+=getFileContent(f"changpop/{video_id}/lyric.txt")
+        text+=getFileContent(f"changpop/{video_id}/lyric")
     except:
         text+="가사가 작성되지 않았습니다."
-
+    if mode=="read":
+        text+=f'<a href="changpop?video_id={video_id}&mode=edit&type=lyric">수정</a>'
     return text
 
 @app.route('/changpop', methods=['GET','POST'])
 def changpop_info():
     video_id=request.args.get("video_id")
     mode=request.args.get("mode")
-    version=request.args.get("version")
+    ver=request.args.get("version")
+    type=request.args.get("type")
     after=""
     if mode=="edit":
 
@@ -126,35 +129,44 @@ def changpop_info():
             #파일 저장
             after=request.form['text']
 
-            
+            keyword=["a href","img","video","iframe","audio","script"]
+            #미디어 차단
+            for i in keyword:
+                if i in after:
+                    return redirect(f"changpop?video_id={video_id}&mode=edit&type={type}")
 
-            #파일의 세부 변경사항을 저장하기
-            before=get_document(video_id)
+            if type=="document":
+                #파일의 세부 변경사항을 저장하기
+                before=get_document(video_id,mode)
+            elif type=="lyric":
+                before=get_lyric(video_id,mode)
             
             if before==after:
                 pass
             else:
-                keyword=["a href","img","video","iframe","audio","script"]
-                #미디어 차단
-                for i in keyword:
-                    if i in after:
-                        return redirect(f"changpop?video_id={video_id}&mode=edit")
-
                 count=0
 
                 #폴더의 파일 개수 확인
-                try:
-                    count=len(os.listdir(f"templates/changpop/{video_id}"))
+                if type=="document":
+                    #파일의 세부 변경사항을 저장하기
+                    try:
+                        file_list=os.listdir(f"templates/changpop/{video_id}")
+                        file_list_py = [file for file in file_list if file.endswith(".html")]
+                        count=len(file_list_py)
 
-                    with open(f"templates/changpop/{video_id}/V{count}.html","w",encoding="UTF-8") as f:
-                        f.write(before)
-                except:
-                    count=1
-                    os.mkdir(f"templates/changpop/{video_id}")
-                
+                        with open(f"templates/changpop/{video_id}/V{count}.html","w",encoding="UTF-8") as f:
+                            f.write(before)
+                    except:
+                        count=1
+                        os.mkdir(f"templates/changpop/{video_id}")
 
-                with open(f"templates/changpop/{video_id}/recent.html","w",encoding="UTF-8") as f:
-                    f.write(after)
+                    with open(f"templates/changpop/{video_id}/recent.html","w",encoding="UTF-8") as f:
+                        f.write(after)
+                    
+                elif type=="lyric":
+                    with open(f"templates/changpop/{video_id}/lyric.html","w",encoding="UTF-8") as f:
+                        f.write(after)
+
 
 
             #읽기모드 페이지로 url 변경
@@ -164,26 +176,31 @@ def changpop_info():
         if request.method == 'GET':
 
             #html input text로 수정할 수 있게
-            after+=f"""<form action="changpop?video_id={video_id}&mode=edit" method="post">
-            <textarea name="text" rows="10" cols="50">{get_document(video_id)}</textarea>
-            <input type="submit" value="수정">
-            </form>"""
+            after+=f"""<form action="changpop?video_id={video_id}&mode=edit&type={type}" method="post">
+            """
+            if type=="document":
+                after+=f'''<textarea name="text" rows="10" cols="50">{get_document(video_id,mode)}</textarea>'''
+            
+            elif type=="lyric":
+                after+=f'''<textarea name="text" rows="10" cols="50">{get_lyric(video_id,mode)}</textarea>'''
+            after+="""<input type="submit" value="수정"> </form>"""
 
     elif mode=="read":
-        print(version)
+        print(ver)
         after=get_video(video_id)
-        if version==None:
-            after+=get_document(video_id)
+        if ver==None:
+            after+=get_document(video_id,mode)
             after+="<br><br><br>가사<br>"
-            after+=get_lyric(video_id)
+            after+=get_lyric(video_id,mode)
+            print(after)
         else:
-            text=get_document(video_id,version)
+            text=get_document(video_id,mode,version=ver)
 
             if text=="존재하지 않는 문서입니다.":
                 return redirect(f"changpop?video_id={video_id}&mode=read")
             else:
                 after+=text
-        
+            after+=get_lyric(video_id,mode)
     elif mode=="version":
         versions = os.listdir(f"templates/changpop/{video_id}")
         return render_template(f"main.html",text=versions)
