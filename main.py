@@ -112,6 +112,8 @@ def get_lyric(video_id):
     except:
         text+="가사가 작성되지 않았습니다."
 
+    return text
+
 @app.route('/changpop', methods=['GET','POST'])
 def changpop_info():
     video_id=request.args.get("video_id")
