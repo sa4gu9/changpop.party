@@ -105,6 +105,13 @@ def get_document(video_id,version="recent"):
     return text
 
 
+def get_lyric(video_id):
+    text=""
+    try:
+        text+=getFileContent(f"changpop/{video_id}/lyric.txt")
+    except:
+        text+="가사가 작성되지 않았습니다."
+
 @app.route('/changpop', methods=['GET','POST'])
 def changpop_info():
     video_id=request.args.get("video_id")
@@ -165,6 +172,8 @@ def changpop_info():
         after=get_video(video_id)
         if version==None:
             after+=get_document(video_id)
+            after+="<br><br><br>가사<br>"
+            after+=get_lyric(video_id)
         else:
             text=get_document(video_id,version)
 
