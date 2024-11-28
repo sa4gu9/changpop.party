@@ -101,7 +101,7 @@ def get_document(video_id,version="recent"):
     except:
         
         text+="존재하지 않는 문서입니다."
-
+    text+=f'<a href="changpop?video_id={video_id}&mode=edit">수정</a>'
     return text
 
 
@@ -183,8 +183,7 @@ def changpop_info():
                 return redirect(f"changpop?video_id={video_id}&mode=read")
             else:
                 after+=text
-        #a href로 수정버튼 추가
-        after+=f'<a href="changpop?video_id={video_id}&mode=edit">수정</a>'
+        
     elif mode=="version":
         versions = os.listdir(f"templates/changpop/{video_id}")
         return render_template(f"main.html",text=versions)
