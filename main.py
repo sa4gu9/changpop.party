@@ -3,7 +3,7 @@ import random
 import secret.option as option
 import os
 from gevent.pywsgi import WSGIServer
-
+import datetime
 
 project_root = os.path.dirname(__file__)
 template_path = os.path.join(project_root, 'templates')
@@ -42,25 +42,23 @@ def getFileContent(htmlFileName,cpoplink=None):
 
 @app.route('/', methods=['GET','POST'])
 def home():
-    
-    result = ["finding"]
+    from openpyxl import load_workbook
 
-    while result[0]=="finding":
-        with open(listpath,"r",encoding="UTF-8") as f:
-            plist = f.readlines()
-            result = random.choice(plist)
-            result = result.replace("\n","")
-            result = result.split("...")
-    text=getFileContent("random",result[0])
+    wb = load_workbook(filename='오늘의 추천곡.xlsx')
 
-    print(result)
-    if result[0]!="lostmedia":
-        text=text.replace("youtube-video-link",result[0])
-    else:
-        text=text.replace("youtube-video-link","")
-    text=text.replace("upload-date",result[1])
-    text=text.replace("artist-name",result[2])
-    text=text.replace("cpop-name",result[3])
+    # 첫 번째 시트 불러오기
+    ws = wb.active
+    for row in ws.rows:
+        row_values = [cell.value for cell in row]
+        print(row_values)
+
+        if row_values[0].year==datetime.datetime.now().year and row_values[0].month==datetime.datetime.now().month and row_values[0].day==datetime.datetime.now().day:
+            text=f"""<br>오늘의 추천곡<br><div class="player">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{row_values[1]}?autoplay=0"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe><br>
+</div><br>{row_values[2]}"""
 
     return render_template("main.html",text=text)
 
