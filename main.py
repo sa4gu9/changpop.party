@@ -253,6 +253,8 @@ def cpopkesalist():
         text=f.readlines()
 
     for i in text:
+        if "?si=" in i:
+            i=i[0:11]+i[32:]
         returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
         
 
