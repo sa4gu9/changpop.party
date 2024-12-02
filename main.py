@@ -85,8 +85,11 @@ def cpoplist():
 
     with open(listpath1201,"r",encoding="UTF-8") as f:
         text=f.readlines()
+        
 
     for i in text:
+        i=i[0:11]+i[32:]
+        
         returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
 
     return render_template("main.html",text=returnstr)
