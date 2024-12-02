@@ -88,7 +88,8 @@ def cpoplist():
         
 
     for i in text:
-        i=i[0:11]+i[32:]
+        if "?si=" in i:
+            i=i[0:11]+i[32:]
         
         returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
 
