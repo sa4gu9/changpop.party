@@ -44,7 +44,7 @@ def getFileContent(htmlFileName,cpoplink=None):
 def home():
     from openpyxl import load_workbook
 
-    wb = load_workbook(filename='오늘의 추천곡.xlsx')
+    wb = load_workbook(filename=f'{os.path.dirname(os.path.abspath(__file__))}/templates/오늘의 추천곡.xlsx')
 
     # 첫 번째 시트 불러오기
     ws = wb.active
