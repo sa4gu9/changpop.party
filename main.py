@@ -12,7 +12,9 @@ app = Flask(__name__, template_folder=template_path)
 
 host = ""
 listpath=f"{os.path.dirname(os.path.abspath(__file__))}/list.txt"
+listpath1201=f"{os.path.dirname(os.path.abspath(__file__))}/list10201201.txt"
 kesapath=f"{os.path.dirname(os.path.abspath(__file__))}/list_kesa.txt"
+kesapath1201=f"{os.path.dirname(os.path.abspath(__file__))}/kesalist10201201.txt"
 if option.testMode:
     host="127.0.0.1"
 else:
@@ -68,6 +70,7 @@ def adstxt():
     with open(f"{os.path.dirname(os.path.abspath(__file__))}/ads.txt","r",encoding="UTF-8") as f:
         return f.read()
 
+
 @app.route('/list', methods=['GET','POST'])
 def cpoplist():
     returnstr=""
@@ -78,6 +81,12 @@ def cpoplist():
     for i in text:
         if i.startswith("finding"):
             break
+        returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
+
+    with open(listpath1201,"r",encoding="UTF-8") as f:
+        text=f.readlines()
+
+    for i in text:
         returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
 
     return render_template("main.html",text=returnstr)
@@ -234,6 +243,12 @@ def cpopkesalist():
     for i in text:
         if i.startswith("finding"):
             break
+        returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
+
+    with open(kesapath1201,"r",encoding="UTF-8") as f:
+        text=f.readlines()
+
+    for i in text:
         returnstr+=f'<a href="changpop?video_id={i[0:11]}&mode=read"'+"</a>"+i+"<br>"
         
 
