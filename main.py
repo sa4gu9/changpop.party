@@ -258,6 +258,32 @@ def cpopkesalist():
 
     return render_template("main.html",text=returnstr)
 
+
+@app.route('/recommand', methods=['GET'])
+def recommandlist():
+
+
+    #엑셀파일 읽기
+    from openpyxl import load_workbook
+
+    wb = load_workbook(filename=f'{os.path.dirname(os.path.abspath(__file__))}/오늘의 추천곡.xlsx')
+
+    # 첫 번째 시트 불러오기
+    ws = wb.active
+    text=""
+    for row in ws.rows:
+        if row[0].value<datetime.datetime.now():
+            #날짜별 추천곡 보여주기
+            for value in row:
+                
+
+                text+=f"{value.value}<br>"
+            text+="<br>"
+
+    return render_template("main.html",text=text)
+
+
+
 @app.route('/changdcup', methods=['GET','POST'])
 def changdcuplist():
     text=getFileContent("changdcup")
