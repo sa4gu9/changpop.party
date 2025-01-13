@@ -42,23 +42,23 @@ def getFileContent(htmlFileName,cpoplink=None):
 
 @app.route('/', methods=['GET','POST'])
 def home():
-    from openpyxl import load_workbook
-
-    wb = load_workbook(filename=f'{os.path.dirname(os.path.abspath(__file__))}/오늘의 추천곡.xlsx')
-
-    # 첫 번째 시트 불러오기
-    ws = wb.active
-    for row in ws.rows:
-        row_values = [cell.value for cell in row]
-        print(row_values)
-
-        if row_values[0].year==datetime.datetime.now().year and row_values[0].month==datetime.datetime.now().month and row_values[0].day==datetime.datetime.now().day:
-            text=f"""<br>오늘의 추천곡<br><div class="player">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/{row_values[1]}?autoplay=0"
+    #xlsx파일 대신 csv파일 불러오기
+    import csv
+    with open(f'{os.path.dirname(os.path.abspath(__file__))}/오늘의 추천곡.csv', 'r', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print(row)
+            print(row[0])
+            if row[0]==datetime.datetime.now().strftime("%Y-%m-%d"):
+                text=f"""<br>오늘의 추천곡<br><div class="player">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{row[1]}?autoplay=0"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe><br>
-</div><br>{row_values[2]}"""
+</div><br>{row[2]}"""
+                break
+
+
 
     return render_template("main.html",text=text)
 
@@ -262,23 +262,19 @@ def cpopkesalist():
 @app.route('/recommand', methods=['GET'])
 def recommandlist():
 
-
-    #엑셀파일 읽기
-    from openpyxl import load_workbook
-
-    wb = load_workbook(filename=f'{os.path.dirname(os.path.abspath(__file__))}/오늘의 추천곡.xlsx')
-
-    # 첫 번째 시트 불러오기
-    ws = wb.active
     text=""
-    for row in ws.rows:
-        if row[0].value<datetime.datetime.now():
-            #날짜별 추천곡 보여주기
-            for value in row:
-                
 
-                text+=f"{value.value}<br>"
-            text+="<br>"
+    import csv
+    with open(f'{os.path.dirname(os.path.abspath(__file__))}/오늘의 추천곡.csv', 'r', encoding='utf-8-sig') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print(row)
+            if datetime.datetime.strptime(row[0],"%Y-%m-%d") < datetime.datetime.now():
+                for value in row:
+
+                    text+=f"{value} "
+                text+="<br>"
+                
 
     return render_template("main.html",text=text)
 
