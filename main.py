@@ -234,6 +234,12 @@ def promptlist():
 
     return render_template(f"main.html",text=text)
 
+@app.route('/contest', methods=['GET','POST'])
+def contestlist():
+    text=getFileContent(f"contest")
+
+    return render_template(f"main.html",text=text)
+
 
 @app.route('/kesa_list', methods=['GET','POST'])
 def cpopkesalist():
