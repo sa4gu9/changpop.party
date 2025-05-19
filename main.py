@@ -1,9 +1,11 @@
+import time
 from flask import Flask,render_template, make_response,request,redirect,url_for,jsonify
 import random
 import secret.option as option
 import os
 from gevent.pywsgi import WSGIServer
 import datetime
+import threading
 
 project_root = os.path.dirname(__file__)
 template_path = os.path.join(project_root, 'templates')
@@ -126,6 +128,46 @@ def get_lyric(video_id,mode="read"):
     if mode=="read":
         text+=f'<a href="changpop?video_id={video_id}&mode=edit&type=lyric">수정</a>'
     return text
+
+import secret.youthyouth.getview as getview
+
+
+youth_status_list = ""
+
+#1시간마다 조회수 체크
+def check_view():
+    global youth_status_list
+    while True:
+        playlist_id = "PLJZ8JY7xrUd4iI7EyraoIr2sAYT_Iyy-n"
+
+        videos = getview.get_playlist_videos(playlist_id)
+
+        value=""
+        for video in videos:
+            value+=video[0]+" "+str(video[1])+"<br>"
+        
+        youth_status_list = value
+        time.sleep(3600)
+
+
+
+
+
+
+
+@app.route('/youth_status', methods=['GET','POST'])
+def youth_status():
+    global youth_status_list
+    text=getFileContent("youth_status")
+
+    if youth_status_list=="":
+        value = "로딩중입니다."
+    else:
+        value = youth_status_list
+
+
+    return render_template("main.html",text=value)
+
 
 @app.route('/changpop', methods=['GET','POST'])
 def changpop_info():
@@ -372,6 +414,8 @@ def cpopquiz():
 
 
 if __name__ == '__main__':
+    youth_thread = threading.Thread(target=check_view)
+    youth_thread.start()
     if option.testMode:
         app.run(debug=True, host=host, port=option.port)
     else:
