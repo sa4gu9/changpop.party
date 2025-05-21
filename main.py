@@ -6,6 +6,9 @@ import os
 from gevent.pywsgi import WSGIServer
 import datetime
 import threading
+from jinja2 import Environment, FileSystemLoader
+import secret.youthyouth.getview as getview
+
 
 project_root = os.path.dirname(__file__)
 template_path = os.path.join(project_root, 'templates')
@@ -26,21 +29,14 @@ else:
 def youthyouthsheet():
     return redirect("https://docs.google.com/spreadsheets/d/1eVphTP9FaDgKn4W0x03rQBDrYMF2ibANxEpaz1dFNvU/edit?gid=1280611118#gid=1280611118")
 
-def getFileContent(htmlFileName,cpoplink=None):
-    hfn = open(f"{os.path.dirname(os.path.abspath(__file__))}/templates/{htmlFileName}.html","r",encoding="UTF-8")
-    content = hfn.readlines()
-    hfn.close()
+def getFileContent(htmlFileName,**context):
 
-    if cpoplink=="lostmedia":
-        content[8]="youtube-video-link<br>"
-        del content[2:8]
-    
-    returnstr=""
+    template_dir = os.path.join(os.path.dirname(__file__), 'templates') 
+    print(template_dir)
+    env = Environment(loader=FileSystemLoader(template_dir))
 
-    for line in content:
-        returnstr+=line
-
-    return returnstr
+    template=env.get_template(f"{htmlFileName}.html")   
+    return template.render(**context)
 
 @app.route('/', methods=['GET','POST'])
 def home():
@@ -129,14 +125,16 @@ def get_lyric(video_id,mode="read"):
         text+=f'<a href="changpop?video_id={video_id}&mode=edit&type=lyric">수정</a>'
     return text
 
-import secret.youthyouth.getview as getview
+
 
 
 youth_status_list = ""
+next_check_time = None
 
 #1시간마다 조회수 체크
 def check_view():
     global youth_status_list
+    global next_check_time
     while True:
         playlist_id = "PLJZ8JY7xrUd4iI7EyraoIr2sAYT_Iyy-n"
 
@@ -147,6 +145,7 @@ def check_view():
             value+=video[0]+" "+str(video[1])+"<br>"
         
         youth_status_list = value
+        next_check_time = datetime.datetime.now() + datetime.timedelta(hours=1) 
         time.sleep(3600)
 
 
@@ -158,15 +157,22 @@ def check_view():
 @app.route('/youth_status', methods=['GET','POST'])
 def youth_status():
     global youth_status_list
-    text=getFileContent("youth_status")
+
+    if next_check_time:
+        remain_time = next_check_time - datetime.datetime.now()
+    else:
+        remain_time = datetime.timedelta(seconds=0)
+
+    value=getFileContent("youth_status",remain_time=remain_time) 
+  
 
     if youth_status_list=="":
-        value = "로딩중입니다."
+        value += "로딩중입니다."
     else:
-        value = youth_status_list
+        value += youth_status_list
 
 
-    return render_template("main.html",text=value)
+    return render_template("main.html",text=value,remain_time=remain_time)
 
 
 @app.route('/changpop', methods=['GET','POST'])
@@ -414,8 +420,10 @@ def cpopquiz():
 
 
 if __name__ == '__main__':
-    youth_thread = threading.Thread(target=check_view)
-    youth_thread.start()
+    youth_thread = None
+    if not youth_thread:
+        youth_thread = threading.Thread(target=check_view)
+        youth_thread.start()
     if option.testMode:
         app.run(debug=True, host=host, port=option.port)
     else:
