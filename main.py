@@ -157,13 +157,16 @@ def check_view():
 @app.route('/youth_status', methods=['GET','POST'])
 def youth_status():
     global youth_status_list
+    global next_check_time
 
     if next_check_time:
         remain_time = next_check_time - datetime.datetime.now()
     else:
         remain_time = datetime.timedelta(seconds=0)
 
-    value=getFileContent("youth_status",remain_time=remain_time) 
+    minutes, seconds = divmod(remain_time.seconds, 60)
+
+    value=getFileContent("youth_status",minutes=minutes,seconds=seconds) 
   
 
     if youth_status_list=="":
