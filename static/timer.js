@@ -21,6 +21,13 @@ setInterval(function () {
     minute = 0;
     second = 0;
   }
+
+  if (minute === 0 && second === 0) {
+    setTimeout(function () {
+      window.location.reload();
+    }, 10000);
+  }
+
   minute = String(minute).padStart(2, "0");
   second = String(second).padStart(2, "0");
   timer.innerText = minute + ":" + second;
