@@ -109,8 +109,13 @@ host = "127.0.0.1" if option.testMode else "0.0.0.0"
 def get_youth_view():
     return jsonify(youth_status_instance.youth_view)
 
+if option.testMode:
+    origins = ["http://localhost:49494","http://127.0.0.1:49494","https://sasagugu.moe"]
+else:
+    origins = ["*"]
+
 from flask_cors import CORS
-CORS(apiApp, origins=["http://localhost:40109","http://127.0.0.1:40109","https://changpop.party"],supports_credentials=True, methods=["GET", "POST", "OPTIONS"], allow_headers=["Content-Type"])
+CORS(apiApp, origins=origins, supports_credentials=True, methods=["GET", "POST", "OPTIONS"], allow_headers=["Content-Type"])
 
 if __name__ == '__main__':
     youth_status_instance = None
