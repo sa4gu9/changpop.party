@@ -1,14 +1,14 @@
 import time
 from flask import Flask,render_template, make_response,request,redirect,url_for,jsonify
 import random
-import secret.option as option
+from secret import option
 import os
 from gevent.pywsgi import WSGIServer
 import datetime
 import threading
 from jinja2 import Environment, FileSystemLoader
 import secret.youthyouth.getview as getview
-
+import apicore
 
 project_root = os.path.dirname(__file__)
 template_path = os.path.join(project_root, 'templates')
@@ -135,23 +135,35 @@ next_check_time = None
 def check_view():
     global youth_status_list
     global next_check_time
+    minutes = 60
+    seconds = 0
+    youth_dict = {}
     while True:
-        playlist_id = "PLJZ8JY7xrUd4iI7EyraoIr2sAYT_Iyy-n"
-
-        videos = getview.get_playlist_videos(playlist_id)
-
-        value=""
-        for video in videos:
-            value+=video[0]+" "+str(video[1])+"<br>"
+        seconds -= 1
         
-        youth_status_list = value
-        next_check_time = datetime.datetime.now() + datetime.timedelta(hours=1) 
-        time.sleep(3600)
+        if minutes == 0 and seconds == 0:
+            minutes = 60
+            seconds = 0
+            playlist_id = "PLJZ8JY7xrUd4iI7EyraoIr2sAYT_Iyy-n"
+
+            videos = apicore.get_playlist_videos(playlist_id)
+
+            value=""
+            for video in videos:
+                value+=video[0]+" "+str(video[1])+"<br>"
+            
+            youth_status_list = value
+            next_check_time = datetime.datetime.now() + datetime.timedelta(hours=1)
+
+        if seconds < 0:
+            minutes -= 1
+            seconds += 60
+        time.sleep(60)
 
 
 
 
-
+    
 
 
 @app.route('/youth_status', methods=['GET','POST'])
@@ -159,23 +171,9 @@ def youth_status():
     global youth_status_list
     global next_check_time
 
-    if next_check_time:
-        remain_time = next_check_time - datetime.datetime.now()
-    else:
-        remain_time = datetime.timedelta(seconds=0)
+    value=getFileContent("youth_status") 
 
-    minutes, seconds = divmod(remain_time.seconds, 60)
-
-    value=getFileContent("youth_status",minutes=minutes,seconds=seconds) 
-  
-
-    if youth_status_list=="":
-        value += "로딩중입니다."
-    else:
-        value += youth_status_list
-
-
-    return render_template("main.html",text=value,remain_time=remain_time)
+    return render_template("main.html",text=value)
 
 
 @app.route('/changpop', methods=['GET','POST'])

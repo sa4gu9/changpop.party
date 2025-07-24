@@ -8,11 +8,7 @@ with open(f"addinglist.txt","r",encoding="UTF-8") as f:
     plist = f.readlines()
 
 for i in plist:
-    result = i.replace("\n","")
-    result = i.split("...")
-    if result[0]=="lostmedia":
-        continue
-    url=f"https://youtu.be/{result[0]}"
+    url=i
     print(url)
     pyperclip.copy(url)
     pyautogui.moveTo(480, 630)
