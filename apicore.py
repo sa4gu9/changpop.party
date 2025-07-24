@@ -110,7 +110,7 @@ def get_youth_view():
     return jsonify(youth_status_instance.youth_view)
 
 if option.testMode:
-    origins = ["http://localhost:49494","http://127.0.0.1:49494","https://sasagugu.moe"]
+    origins = ["http://localhost:49494","http://127.0.0.1:49494","https://changpop.party"]
 else:
     origins = ["*"]
 
