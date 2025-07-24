@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 import time
 import threading
 
-
+apiBluePrint = Blueprint('api', __name__, url_prefix='/api')
 class youth_status:
     def __init__(self):
         self.youth_view = {}
@@ -105,7 +105,7 @@ host = "127.0.0.1" if option.testMode else "0.0.0.0"
 
 
 
-@apiApp.route('/youth_view', methods=['GET'])
+@apiBluePrint.route('/youth_view', methods=['GET'])
 def get_youth_view():
     return jsonify(youth_status_instance.youth_view)
 
@@ -118,7 +118,7 @@ from flask_cors import CORS
 CORS(apiApp, origins=origins, supports_credentials=True, methods=["GET", "POST", "OPTIONS"], allow_headers=["Content-Type"])
 
 if __name__ == '__main__':
-    apiBluePrint = Blueprint('api', __name__, url_prefix='/api')
+    
     apiApp.register_blueprint(apiBluePrint)
     youth_status_instance = None
     if youth_status_instance is None:
