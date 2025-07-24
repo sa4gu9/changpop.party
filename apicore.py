@@ -1,5 +1,5 @@
 
-from flask import Flask, request, jsonify
+from flask import Blueprint, Flask, request, jsonify
 from secret import option
 from googleapiclient.discovery import build
 import time
@@ -118,6 +118,8 @@ from flask_cors import CORS
 CORS(apiApp, origins=origins, supports_credentials=True, methods=["GET", "POST", "OPTIONS"], allow_headers=["Content-Type"])
 
 if __name__ == '__main__':
+    apiBluePrint = Blueprint('api', __name__, url_prefix='/api')
+    apiApp.register_blueprint(apiBluePrint)
     youth_status_instance = None
     if youth_status_instance is None:
         youth_status_instance = youth_status()
